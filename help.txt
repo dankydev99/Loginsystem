@@ -1,0 +1,78 @@
+In this PHP tutorial you will learn how to create a complete login system in PHP from scratch, and how to show content after being logged in. You will also learn about error handlers, and MySQLi databases, which includes how to make a login form and a signup form.
+
+I am aware that this is a very long video, but I promise it will be one of the easiest guides you will ever find on how to create a login system from scratch!
+
+If you get any errors during this tutorial, make sure to check out my solutions at the very bottom of this description! :)
+
+? IMPORTANT YOU READ THIS!
+
+In this video I allow users to log in using either their e-mail or username. Because of this we run into an issue later.
+
+If a user tries to sign up with multiple accounts using the same e-mail then our script gets confused when we try to log in using our e-mail because we have many users with the same e-mail in our database. However this is VERY easy to fix!
+
+To fix this, remove the part of the "login script" where we check the database for a username AND e-mail, and instead make sure we ONLY check for the username. Do this in both the SQL statement AND the prepared statement function called mysqli_stmt_bind_param().
+
+The SQL statement should say:
+$sql = "SELECT * FROM users WHERE uidUsers=?;";
+
+And the function should say:
+mysqli_stmt_bind_param($stmt, "s", $mailuid);
+
+? LINKS
+
+Install XAMPP & a local server: https://www.youtube.com/watch?v=mXdpC...
+Regular expressions (search patterns): https://www.youtube.com/watch?v=In5NB...
+PHP Password Recovery System: https://www.youtube.com/watch?v=wUkKC...
+
+? CHAPTERS
+
+(00:00:00) Introduction
+(00:01:08) Technical info you need to know
+(00:03:45) What you need to have ready before we start
+(00:05:28) HTML & CSS markup
+(00:23:49) Setting up our database
+(00:29:59) Creating the PHP signup script
+(01:15:51) Creating the PHP login script
+(01:35:39) How to start a session on all website pages
+(01:36:37) How to change website content when logged in
+(01:41:10) Creating the PHP logout script
+(01:42:56) How to create error messages
+(01:48:42) If you got an error during this tutorial
+
+? GET ACCESS TO MY LESSON MATERIAL HERE!
+
+First of all, thank you for all the support you have given me!
+
+I am really glad to have such an awesome community on my channel. It motivates me to continue creating and uploading content! So thank you!
+
+I am now using Patreon to share improved and updated lesson material, and for a small fee you can access all the material. I have worked hard, and done my best to help you understand what I teach.
+
+I hope you will find it helpful :)
+
+Material for this lesson: https://www.patreon.com/posts/php-pro...
+
+? ERRORS YOU MIGHT RUN INTO!!!
+
+?"signup=empty"
+Make sure you wrote "mysqli_connect" and NOT "mysql_connect" in the dbh.inc.php file!
+
+?"unexpected }"
+If you get this error message:
+Parse error: syntax error, unexpected '}'
+Then it is because you forgot to close a ) or ; somewhere.
+
+?"unexpected ;"
+If you get this error message:
+Parse error: syntax error, unexpected ';'
+Then it is because you forgot to close a } or ) somewhere. Probably because you made a mistake with your parenthesis near the "empty()" functions in your signup script.
+
+?"hashed pwd error"
+If you get an error in the script when you hash the password, then it is because you decided not to follow my steps exactly in the video when I created the database table. Make sure you DON'T set the varchar() to a lower value! When you hash the password it will take up a lot of space in this column, and if you set a lower number then it won't fit!
+
+?"signup=success but database is empty?"
+Here there might be a few reasons for your error. 1st is that you made a syntax/spelling mistake in your code. And yes you will claim that your code is identical to mine, but in 90% of the cases people claim this, I still find a syntax error in their code. So check your code for errors!
+2nd reason is that MAMP seems to cause a lot of issues for people. Therefore try using XAMPP and make sure you write the same as me in the dbh.inc.php file.
+3nd reason might be because you didn't follow the tutorial 100% when we set up the database at the beginning.
+
+?"HTTP ERROR 500"
+HTTP ERROR 500 is a server error, meaning that you are most likely using an outdated version of apache or mysql. Try updating your servers and make sure that you are using the latest version of PHP.
