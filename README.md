@@ -1,4 +1,4 @@
-# Loginsystem
+# loginSys
 My small hobby project, a website where users can sign up and login. 
 
 HOW TO RUN
@@ -16,7 +16,7 @@ HOW TO RUN
     pwd longtext NOT NULL
     );
     
- 6.Now once the Database is created , to access the website, visit localhost/loginsys
+ 6.Now once the Database is created , to access the website, visit localhost/loginSys
  7.Here you can sign up or login.
  
  THE END
